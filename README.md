@@ -1,7 +1,7 @@
 # TechFest Team GSN
 
 ## AI COMPANION
-This project is an AI Companion application developed by TEAM GSN, utilizing Three.js and React for the frontend, and leveraging ElevenLabs for AI voice generation and OpenAI for intelligent responses.
+This project is an AI Companion application developed by TEAM GSN, utilizing Three.js and React for the frontend, and leveraging ElevenLabs for AI voice generation and NLPCloud API for intelligent responses.
 
 <div>
 <img src="http://img.shields.io/badge/Javascript-fcd400?style=flat-square&logo=javascript&logoColor=black" alt="Javascript">
@@ -33,7 +33,7 @@ Initialise your `.env` file. Check `.env.example` in Backend for the environment
 
 You will require:
 
-- [OpenAI](https://openai.com/) API Key
+- [NLPCloud](https://nlpcloud.com/) API Key
 - [ElevenLabs](https://elevenlabs.io/) API Key
 
 Next, set up the backend, in the terminal:
