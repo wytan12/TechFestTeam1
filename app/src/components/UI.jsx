@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { useChat } from "../hooks/useChat";
+import "./UI.css";
 
 export const UI = ({ hidden, ...props }) => {
   const input = useRef();
@@ -18,15 +19,47 @@ export const UI = ({ hidden, ...props }) => {
 
   return (
     <>
-      <div className="fixed top-0 left-0 right-0 bottom-0 z-10 flex justify-between p-4 flex-col pointer-events-none">
-        <div className="self-start backdrop-blur-md bg-white bg-opacity-50 p-4 rounded-lg">
-          <h1 className="font-black text-xl">My Virtual GF</h1>
-          <p>I will always love you ❤️</p>
+      <div
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          zIndex: 10,
+          display: "flex",
+          justifyContent: "space-between",
+          padding: "1rem",
+          flexDirection: "column",
+          pointerEvents: "none",
+        }}
+      >
+        <div class="box" style={{ position: "relative" }}>
+          <div class="lightbar"></div>
+          <div class="topLayer"></div>
+          <h1 class="title">Team GSN AI Virtual GF</h1>
         </div>
-        <div className="w-full flex flex-col items-end justify-center gap-4">
+        
+        <div
+          style={{
+            // width: "100%",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-end",
+            justifyContent: "center",
+            gap: "1rem",
+          }}
+        >
           <button
             onClick={() => setCameraZoomed(!cameraZoomed)}
-            className="pointer-events-auto bg-pink-500 hover:bg-pink-600 text-white p-4 rounded-md"
+            style={{
+              pointerEvents: "auto",
+              backgroundColor: "#f88379",
+              ":hover": { backgroundColor: "#fc6c85", color: "#fff" },
+              padding: "1rem",
+              borderRadius: "0.375rem",
+              cursor: "pointer",
+            }}
           >
             {cameraZoomed ? (
               <svg
@@ -35,7 +68,7 @@ export const UI = ({ hidden, ...props }) => {
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="w-6 h-6"
+                style={{ width: "1.5rem", height: "1.5rem" }}
               >
                 <path
                   strokeLinecap="round"
@@ -50,7 +83,7 @@ export const UI = ({ hidden, ...props }) => {
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="w-6 h-6"
+                style={{ width: "1.5rem", height: "1.5rem" }}
               >
                 <path
                   strokeLinecap="round"
@@ -69,7 +102,15 @@ export const UI = ({ hidden, ...props }) => {
                 body.classList.add("greenScreen");
               }
             }}
-            className="pointer-events-auto bg-pink-500 hover:bg-pink-600 text-white p-4 rounded-md"
+            style={{
+              pointerEvents: "auto",
+              backgroundColor: "#f88379",
+              padding: "1rem",
+              color: "white",
+              borderRadius: "0.5rem",
+              cursor: "pointer", 
+              pointerEvents: "auto",
+            }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -77,7 +118,7 @@ export const UI = ({ hidden, ...props }) => {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-6 h-6"
+              style={{ width: "1.5rem", height: "1.5rem" }}
             >
               <path
                 strokeLinecap="round"
@@ -86,9 +127,26 @@ export const UI = ({ hidden, ...props }) => {
             </svg>
           </button>
         </div>
-        <div className="flex items-center gap-2 pointer-events-auto max-w-screen-sm w-full mx-auto">
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "0.5rem",
+            pointerEvents: "auto",
+            maxWidth: "640px",
+            width: "100%",
+            margin: "0 auto",
+          }}
+        >
           <input
-            className="w-full placeholder:text-gray-800 placeholder:italic p-4 rounded-md bg-opacity-50 bg-white backdrop-blur-md"
+            style={{
+              width: "100%",
+              placeholder: { color: "text-gray-800", fontStyle: "italic" },
+              padding: "1rem",
+              borderRadius: "0.375rem",
+              backgroundColor: "rgba(255, 255, 255, 0.5)",
+              backdropFilter: "blur(8px)",
+            }}
             placeholder="Type a message..."
             ref={input}
             onKeyDown={(e) => {
@@ -100,9 +158,21 @@ export const UI = ({ hidden, ...props }) => {
           <button
             disabled={loading || message}
             onClick={sendMessage}
-            className={`bg-pink-500 hover:bg-pink-600 text-white p-4 px-10 font-semibold uppercase rounded-md ${
-              loading || message ? "cursor-not-allowed opacity-30" : ""
-            }`}
+            style={{
+              backgroundColor: "#f88379",
+              color: "white",
+              padding: "1rem",
+              paddingLeft: "2.5rem", // Increased padding on left and right sides
+              paddingRight: "2.5rem",
+              fontWeight: "600",
+              textTransform: "uppercase",
+              cursor: "pointer", // Add pointer cursor
+              pointerEvents: "auto",
+              borderRadius: "0.375rem",
+              ...(loading || message
+                ? { cursor: "not-allowed", opacity: "0.3" }
+                : {}), // Dynamic styles based on conditions
+            }}
           >
             Send
           </button>
