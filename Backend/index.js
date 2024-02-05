@@ -31,7 +31,7 @@ app.get("/", (req, res) => {
 
 app.get("/voices", async (req, res) => {
     res.send(await elevenLabs.getVoices());
-//   console.log("Hello", voice);
+    // console.log("Hello", voice);
 });
 
 const execCommand = (command) => {

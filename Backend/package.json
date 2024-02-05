@@ -5,7 +5,6 @@
     "dotenv": "^16.4.1",
     "elevenlabs-node": "^2.0.3",
     "express": "^4.18.2",
-    "ffmepg": "^0.0.2-security",
     "ffmpeg": "^0.0.4",
     "openai": "^4.26.0"
   }
