@@ -93,4 +93,6 @@ The project serves as a platform for research and development in artificial inte
 
 There are various monetization opportunities associated with the AI Girlfriend project, including subscription-based models, in-app purchases for premium features, partnerships with brands for sponsored content, and licensing agreements for technology components.
 
+---
+
 _Submission: This repository is submitted to Nanyang Technological University Singapore as a project for TechFest Hackathon
