@@ -1,0 +1,94 @@
+.lightbar{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 100%;
+    border-radius: 10px;
+    background: #fff;
+    z-index: 2;
+    box-shadow: 0 0 10px #B33B72, 
+    0 0 20px #B33B72, 
+    0 0 40px #B33B72, 
+    0 0 80px #B33B72, 
+    0 0 120px #B33B72;
+    animation: animatelightbar 5s linear infinite;
+}
+
+@keyframes animatelightbar
+{
+    0%, 5%
+    {
+        transform: scaleY(0) translateX(180px);
+    }
+    10%
+    {
+        transform: scaleY(1) translateX(180px);
+    }
+    90%
+    {
+        transform: scaleY(1) translateX(calc(1350px - 10px));
+    }
+    95%, 100%
+    {
+        transform: scaleY(0) translateX(calc(1350px - 10px));
+    }
+}
+
+.title{
+    color: #fff;
+    font-size: 5em;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-shadow: 0 0 10px #B33B72, 
+    0 0 20px #B33B72, 
+    0 0 40px #B33B72, 
+    0 0 80px #B33B72, 
+    0 0 120px #B33B72;
+}
+
+.topLayer{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height: 100%;
+    animation: animatetopLayer 10s linear infinite;
+}
+
+@keyframes animatetopLayer
+{
+    0%, 2.5%
+    {
+        transform: translateX(280px);
+    }
+    5%
+    {
+        transform: translateX(280px);
+    }
+    45%
+    {
+        transform: translateX(100%);
+    }
+    47.5%, 50%
+    {
+        transform: translateX(100%);
+    }
+
+    50.001%, 52.5%
+    {
+        transform: translateX(-100%);
+    }
+    55%
+    {
+        transform: translateX(-100%);
+    }
+    95%
+    {
+        transform: translateX(0%);
+    }
+    97.5%, 100%
+    {
+        transform: translateX(0%);
+    }
+}
