@@ -1,24 +1,48 @@
 import { exec } from "child_process";
 import cors from "cors";
 import dotenv from "dotenv";
-import ElevenLabs from "elevenlabs-node";
 import voice from "elevenlabs-node";
 import express from "express";
 import { promises as fs } from "fs";
 import OpenAI from "openai";
 dotenv.config();
 
+// const openai = new OpenAI({
+//   apiKey: process.env.OPENAI_API_KEY || "-", // Your OpenAI API key here, I used "-" to avoid errors when the key is not set but you should not do that
+// });
+
+import NLPCloudClient from "nlpcloud";
+
+const client = new NLPCloudClient({model:'chatdolphin', token:'d9693363f046bd7a4e487ce42a63d2fdca549219', gpu:true})
+
+const NLPgen = await client.chatbot({
+  response_format: {
+    type: "json_object",
+  },
+  input: `I miss you`,
+  context:`You are a virtual girlfriend. You will always reply with a JSON array of messages. With a maximum of 3 messages. 
+  Each message has a text, facialExpression, and animation property. 
+  The different facial expressions are: smile, sad, angry, surprised, funnyFace, and default. 
+  The different animations are: Talking_0, Talking_1, Talking_2, Crying, Laughing, Rumba, Idle, Terrified, and Angry. `,
+  history:[
+  {
+      input:"Hello friend",
+      response:"Hi there, how is it going today?"
+  },
+  {
+      input:"Well, not that good...",
+      response:"Oh? What happened?"
+  }
+]
+}).then(function (response) {
+  console.log(response.data);
+}).catch(function (err) {
+  console.error(err.response.status);
+  console.error(err.response.data.detail);
+});
+
 const elevenLabsApiKey = process.env.ELEVEN_LABS_API_KEY;
-const voiceID = "kgG7dCoKCfLehAPWkJOE";
-
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY || '-', // Your OpenAI API key here, I used "-" to avoid errors when the key is not set but you should not do that
-});
-
-const elevenLabs = new ElevenLabs({
-  apiKey: elevenLabsApiKey,
-});
-
+const voiceID = "XrExE9yKIg1WjnnlVkGX";
 
 const app = express();
 app.use(express.json());
@@ -30,8 +54,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/voices", async (req, res) => {
-    res.send(await elevenLabs.getVoices());
-//   console.log("Hello", voice);
+  res.send(await voice.getVoices(elevenLabsApiKey));
 });
 
 const execCommand = (command) => {
@@ -81,7 +104,7 @@ app.post("/chat", async (req, res) => {
     });
     return;
   }
-  if (!elevenLabsApiKey || openai.apiKey === "-") {
+  if (!elevenLabsApiKey) {
     res.send({
       messages: [
         {
@@ -103,31 +126,32 @@ app.post("/chat", async (req, res) => {
     return;
   }
 
-  const completion = await openai.chat.completions.create({
-    model: "gpt-3.5-turbo-0613",
-    max_tokens: 1000,
-    temperature: 0.6,
-    response_format: {
-      type: "json_object",
-    },
-    messages: [
-      {
-        role: "system",
-        content: `
-        You are a virtual girlfriend.
-        You will always reply with a JSON array of messages. With a maximum of 3 messages.
-        Each message has a text, facialExpression, and animation property.
-        The different facial expressions are: smile, sad, angry, surprised, funnyFace, and default.
-        The different animations are: Talking_0, Talking_1, Talking_2, Crying, Laughing, Rumba, Idle, Terrified, and Angry. 
-        `,
-      },
-      {
-        role: "user",
-        content: userMessage || "Hello",
-      },
-    ],
-  });
-  let messages = JSON.parse(completion.choices[0].message.content);
+  // const completion = await openai.chat.completions.create({
+  //   model: "gpt-3.5-turbo-1106",
+  //   max_tokens: 1000,
+  //   temperature: 0.6,
+  //   response_format: {
+  //     type: "json_object",
+  //   },
+  //   messages: [
+  //     {
+  //       role: "system",
+  //       content: `
+  //       You are a virtual girlfriend.
+  //       You will always reply with a JSON array of messages. With a maximum of 3 messages.
+  //       Each message has a text, facialExpression, and animation property.
+  //       The different facial expressions are: smile, sad, angry, surprised, funnyFace, and default.
+  //       The different animations are: Talking_0, Talking_1, Talking_2, Crying, Laughing, Rumba, Idle, Terrified, and Angry. 
+  //       `,
+  //     },
+  //     {
+  //       role: "user",
+  //       content: userMessage || "Hello",
+  //     },
+  //   ],
+  // });
+
+  let messages = JSON.parse(NLPgen.choices[0].message.content);
   if (messages.messages) {
     messages = messages.messages; // ChatGPT is not 100% reliable, sometimes it directly returns an array and sometimes a JSON object with a messages property
   }
