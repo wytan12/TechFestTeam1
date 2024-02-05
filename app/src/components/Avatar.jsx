@@ -107,9 +107,13 @@ const corresponding = {
 let setupMode = false;
 
 export function Avatar(props) {
+  // const { nodes, materials, scene } = useGLTF(
+  //   "/models/64f1a714fe61576b46f27ca2.glb"
+  // );
   const { nodes, materials, scene } = useGLTF(
-    "/models/64f1a714fe61576b46f27ca2.glb"
+    "/models/65bfba7c5bfe15dcc688488b (2).glb"
   );
+  
 
   const { message, onMessagePlayed, chat } = useChat();
 
@@ -374,5 +378,6 @@ export function Avatar(props) {
   );
 }
 
-useGLTF.preload("/models/64f1a714fe61576b46f27ca2.glb");
+// useGLTF.preload("/models/64f1a714fe61576b46f27ca2.glb");
+useGLTF.preload("/models/65bfba7c5bfe15dcc688488b (2).glb")
 useGLTF.preload("/models/animations.glb");
