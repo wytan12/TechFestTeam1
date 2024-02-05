@@ -55,7 +55,7 @@ npm run dev
 
 ### Section 1: Introduction
 
-The AI Girlfriend project serves as a beacon of companionship in an era where loneliness has become increasingly prevalent. With the rise of digital communication and social distancing measures, many individuals find themselves longing for meaningful connections. By harnessing advanced technologies, this project endeavors to provide solace and support to those navigating the complexities of modern life.
+The AI Companion project serves as a beacon of companionship in an era where loneliness has become increasingly prevalent. With the rise of digital communication and social distancing measures, many individuals find themselves longing for meaningful connections. By harnessing advanced technologies, this project endeavors to provide solace and support to those navigating the complexities of modern life.
 
 ---
 
