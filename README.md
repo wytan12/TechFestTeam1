@@ -95,4 +95,9 @@ There are various monetization opportunities associated with the AI Girlfriend p
 
 ---
 
+<h3 align="center">Reference</h3>
+
+[1]: [How to Use ElevenLabs - Best Text to Speech AI Voices (FULL GUIDE)](https://www.youtube.com/watch?v=z0sD2BvUfM0)  
+[2]: [Introduction to NLP Cloud by showing the signup process and a simple Entity Extraction (NER)](https://www.youtube.com/watch?v=hrQMTpqS7BA)  
+
 _Submission: This repository is submitted to Nanyang Technological University Singapore as a project for TechFest Hackathon
