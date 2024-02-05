@@ -11,7 +11,7 @@ This project is an AI Companion application developed by TEAM GSN, utilizing Thr
 <img src="https://img.shields.io/badge/Express.js-17202C?style=flat-square&logo=express" alt="Express.js">
 </div>
 
-![Cover](./Documents/Diagrams/VIFitnessCover.png)
+![Cover](./cover.png)
 
 ### Team Member:
 
