@@ -27,7 +27,6 @@ This project is an AI Companion application developed by TEAM GSN, utilizing Thr
 This project is developed with [React 18](https://react.dev/) and tested on [Visual Studio Code](https://code.visualstudio.com/).
 
 **To run the application:**  
-First, clone the repository into your local device, the directory should look something like this:
 
 Initialise your `.env` file. Check `.env.example` in Backend for the environment variables required.
 
