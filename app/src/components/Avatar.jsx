@@ -108,7 +108,7 @@ let setupMode = false;
 
 export function Avatar(props) {
   const { nodes, materials, scene } = useGLTF(
-    "/models/65bfba7c5bfe15dcc688488b (2).glb"
+    "/models/65bfba7c5bfe15dcc688488b.glb"
   );
   
 
@@ -375,5 +375,5 @@ export function Avatar(props) {
   );
 }
 
-useGLTF.preload("/models/65bfba7c5bfe15dcc688488b (2).glb")
+useGLTF.preload("/models/65bfba7c5bfe15dcc688488b.glb")
 useGLTF.preload("/models/animations.glb");

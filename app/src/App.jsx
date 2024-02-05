@@ -16,13 +16,10 @@ function App() {
     <>
       <Loader />
       <Leva />
-      <UI hidden />
+      <UI />
       <Canvas shadows camera={{ position: [0, 0, 1], fov: 30 }}>
         <Experience />
       </Canvas>
-      {/* <div>
-        <TextGen/>
-      </div> */}
     </>
   )
 }
