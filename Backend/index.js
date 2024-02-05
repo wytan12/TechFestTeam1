@@ -4,7 +4,6 @@ import dotenv from "dotenv";
 import voice from "elevenlabs-node";
 import express from "express";
 import { promises as fs } from "fs";
-import OpenAI from "openai";
 dotenv.config();
 
 // const openai = new OpenAI({
@@ -13,7 +12,7 @@ dotenv.config();
 
 import NLPCloudClient from "nlpcloud";
 
-const client = new NLPCloudClient({model:'chatdolphin', token:'d9693363f046bd7a4e487ce42a63d2fdca549219', gpu:true})
+const client = new NLPCloudClient({model:'chatdolphin', token: process.env.NLPCloud_API_KEY, gpu:true})
 
 const NLPgen = await client.chatbot({
   response_format: {
