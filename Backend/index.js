@@ -1,18 +1,24 @@
-// import { exec } from "child_process";
+import { exec } from "child_process";
 import cors from "cors";
 import dotenv from "dotenv";
+import ElevenLabs from "elevenlabs-node";
 import voice from "elevenlabs-node";
 import express from "express";
 import { promises as fs } from "fs";
 import OpenAI from "openai";
 dotenv.config();
 
+const elevenLabsApiKey = process.env.ELEVEN_LABS_API_KEY;
+const voiceID = "kgG7dCoKCfLehAPWkJOE";
+
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY || "-", // Your OpenAI API key here, I used "-" to avoid errors when the key is not set but you should not do that
 });
 
-const elevenLabsApiKey = process.env.ELEVEN_LABS_API_KEY;
-const voiceID = "kgG7dCoKCfLehAPWkJOE";
+const elevenLabs = new ElevenLabs({
+  apiKey: elevenLabsApiKey,
+});
+
 
 const app = express();
 app.use(express.json());
@@ -24,7 +30,8 @@ app.get("/", (req, res) => {
 });
 
 app.get("/voices", async (req, res) => {
-  res.send(await voice.getVoices(elevenLabsApiKey));
+    res.send(await elevenLabs.getVoices());
+//   console.log("Hello", voice);
 });
 
 const execCommand = (command) => {
