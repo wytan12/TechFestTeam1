@@ -1,11 +1,15 @@
 {
   "type": "module",
   "dependencies": {
+    "@google/generative-ai": "^0.2.0",
+    "bard-ai": "^2.0.3",
     "cors": "^2.8.5",
     "dotenv": "^16.4.1",
+    "elevenlabs": "^0.1.5",
     "elevenlabs-node": "^2.0.3",
     "express": "^4.18.2",
     "ffmpeg": "^0.0.4",
+    "nlpcloud": "^2.0.2",
     "openai": "^4.26.0"
   }
 }
