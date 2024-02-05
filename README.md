@@ -1,4 +1,4 @@
-# TechFest Team GSN
+# TechFest Team1 (Reference code:1A)
 
 ## AI COMPANION
 This project is an AI Companion application developed by TEAM GSN, utilizing Three.js and React for the frontend, and leveraging ElevenLabs for AI voice generation and NLPCloud API for intelligent responses.
